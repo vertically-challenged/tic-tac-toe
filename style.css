@@ -1,6 +1,6 @@
 * {
 	margin: 0em; 
-	padding: 0; 
+    padding: 0; 
 }
 
 aside {
@@ -21,4 +21,30 @@ aside > div {
 
 aside > div > div {
 	background-color: white;
+}
+
+input {
+    /* display: none; */
+}
+
+label {
+    display: flex; 
+    position: absolute;
+    width: 130px; 
+    height: 130px;
+    font-size: 75pt;
+    align-items: center;
+    justify-content: center;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+label[for$="_x"]:hover::before{
+    content: "X";
+}
+
+label[for$="_o"]:hover::before {
+    content: "O";
 }
