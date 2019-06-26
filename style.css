@@ -1,6 +1,7 @@
 * {
 	margin: 0em; 
     padding: 0; 
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 aside {
@@ -19,6 +20,38 @@ aside > div {
     background-color: #a8a8a8;
 }
 
+#game_over_blur {
+    display: none;
+    grid-area: 2 / 2; 
+    background-color: #363636;
+    opacity: .4;
+    -webkit-filter: blur(1em);
+    filter: blur(1em);
+    width: 100%;
+    height: 100%;
+}
+
+#game_over_message {
+    display: none; 
+    grid-area: 2 / 2; 
+    opacity: .7;
+    grid-template: repeat(4, 1fr) / 1fr;
+    align-items: center;
+}
+
+#game_over_message > span {
+    display: block;
+    color: white;
+    font-size: 32pt;
+    font-weight: bold;
+    text-align: center;
+    grid-area: 2 / 1; 
+}
+
+#game_over_message > span + span {
+    grid-area: 3 / 1;
+}
+
 div[id^="cell"] {
     background-color: white;
     display: flex; 
@@ -28,7 +61,7 @@ div[id^="cell"] {
 }
 
 input {
-    /* display: none; */
+    display: none;
 }
 
 label {
@@ -39,6 +72,7 @@ label {
     font-size: 75pt;
     align-items: center;
     justify-content: center;
+    color: #a8a8a8;
 }
 
 label:hover {
@@ -63,6 +97,7 @@ input[id$="_7_x"]:checked ~ aside > div > #cell_7::before,
 input[id$="_8_x"]:checked ~ aside > div > #cell_8::before,
 input[id$="_9_x"]:checked ~ aside > div > #cell_9::before {
     content: "X";
+    color: #8b5a5a;
 }
 
 input[id$="_1_o"]:checked ~ aside > div > #cell_1::before,
@@ -75,6 +110,7 @@ input[id$="_7_o"]:checked ~ aside > div > #cell_7::before,
 input[id$="_8_o"]:checked ~ aside > div > #cell_8::before,
 input[id$="_9_o"]:checked ~ aside > div > #cell_9::before {
     content: "O";
+    color: #8c8d45;
 }
 
 label[for$="_x"] {
@@ -160,4 +196,252 @@ input[id*=_7_]:checked ~ aside > div > #cell_7 > label,
 input[id*=_8_]:checked ~ aside > div > #cell_8 > label,
 input[id*=_9_]:checked ~ aside > div > #cell_9 > label {
     display: none;
+}
+
+input[id$=_1_x]:checked ~ 
+input[id$=_4_x]:checked ~ 
+input[id$=_7_x]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_2_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_8_x]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_3_x]:checked ~ 
+input[id$=_6_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_1_x]:checked ~ 
+input[id$=_2_x]:checked ~ 
+input[id$=_3_x]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_4_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_6_x]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_7_x]:checked ~ 
+input[id$=_8_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_3_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_7_x]:checked ~ aside > #game_over_message > #message::before,
+input[id$=_1_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > #game_over_message > #message::before {
+    content: "Player 1 wins";
+}
+
+input[id$=_1_o]:checked ~ 
+input[id$=_4_o]:checked ~ 
+input[id$=_7_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_2_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_8_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_3_o]:checked ~ 
+input[id$=_6_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_1_o]:checked ~ 
+input[id$=_2_o]:checked ~ 
+input[id$=_3_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_4_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_6_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_7_o]:checked ~ 
+input[id$=_8_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_3_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_7_o]:checked ~ aside > #game_over_message > #message::before,
+input[id$=_1_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > #game_over_message > #message::before {
+    content: "Player 2 wins";
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+aside > #game_over_message > #message::before {
+    content: "Draw";
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+aside > #game_over_blur, 
+input[id$=_1_x]:checked ~ 
+input[id$=_4_x]:checked ~ 
+input[id$=_7_x]:checked ~ aside > #game_over_blur, 
+input[id$=_2_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_8_x]:checked ~ aside > #game_over_blur, 
+input[id$=_3_x]:checked ~ 
+input[id$=_6_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > #game_over_blur, 
+input[id$=_1_x]:checked ~ 
+input[id$=_2_x]:checked ~ 
+input[id$=_3_x]:checked ~ aside > #game_over_blur, 
+input[id$=_4_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_6_x]:checked ~ aside > #game_over_blur, 
+input[id$=_7_x]:checked ~ 
+input[id$=_8_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > #game_over_blur, 
+input[id$=_3_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_7_x]:checked ~ aside > #game_over_blur,
+input[id$=_1_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > #game_over_blur,
+input[id$=_1_o]:checked ~ 
+input[id$=_4_o]:checked ~ 
+input[id$=_7_o]:checked ~ aside > #game_over_blur, 
+input[id$=_2_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_8_o]:checked ~ aside > #game_over_blur, 
+input[id$=_3_o]:checked ~ 
+input[id$=_6_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > #game_over_blur, 
+input[id$=_1_o]:checked ~ 
+input[id$=_2_o]:checked ~ 
+input[id$=_3_o]:checked ~ aside > #game_over_blur, 
+input[id$=_4_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_6_o]:checked ~ aside > #game_over_blur, 
+input[id$=_7_o]:checked ~ 
+input[id$=_8_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > #game_over_blur, 
+input[id$=_3_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_7_o]:checked ~ aside > #game_over_blur,
+input[id$=_1_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > #game_over_blur,
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+aside > #game_over_message,
+input[id$=_1_x]:checked ~ 
+input[id$=_4_x]:checked ~ 
+input[id$=_7_x]:checked ~ aside > #game_over_message, 
+input[id$=_2_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_8_x]:checked ~ aside > #game_over_message, 
+input[id$=_3_x]:checked ~ 
+input[id$=_6_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > #game_over_message, 
+input[id$=_1_x]:checked ~ 
+input[id$=_2_x]:checked ~ 
+input[id$=_3_x]:checked ~ aside > #game_over_message, 
+input[id$=_4_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_6_x]:checked ~ aside > #game_over_message, 
+input[id$=_7_x]:checked ~ 
+input[id$=_8_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > #game_over_message, 
+input[id$=_3_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_7_x]:checked ~ aside > #game_over_message,
+input[id$=_1_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > #game_over_message,
+input[id$=_1_o]:checked ~ 
+input[id$=_4_o]:checked ~ 
+input[id$=_7_o]:checked ~ aside > #game_over_message, 
+input[id$=_2_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_8_o]:checked ~ aside > #game_over_message, 
+input[id$=_3_o]:checked ~ 
+input[id$=_6_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > #game_over_message, 
+input[id$=_1_o]:checked ~ 
+input[id$=_2_o]:checked ~ 
+input[id$=_3_o]:checked ~ aside > #game_over_message, 
+input[id$=_4_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_6_o]:checked ~ aside > #game_over_message, 
+input[id$=_7_o]:checked ~ 
+input[id$=_8_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > #game_over_message, 
+input[id$=_3_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_7_o]:checked ~ aside > #game_over_message,
+input[id$=_1_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > #game_over_message {
+    display: grid;
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ aside > div,
+input[id$=_1_x]:checked ~ 
+input[id$=_4_x]:checked ~ 
+input[id$=_7_x]:checked ~ aside > div, 
+input[id$=_2_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_8_x]:checked ~ aside > div, 
+input[id$=_3_x]:checked ~ 
+input[id$=_6_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > div, 
+input[id$=_1_x]:checked ~ 
+input[id$=_2_x]:checked ~ 
+input[id$=_3_x]:checked ~ aside > div, 
+input[id$=_4_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_6_x]:checked ~ aside > div, 
+input[id$=_7_x]:checked ~ 
+input[id$=_8_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > div, 
+input[id$=_3_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_7_x]:checked ~ aside > div,
+input[id$=_1_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > div,
+input[id$=_1_o]:checked ~ 
+input[id$=_4_o]:checked ~ 
+input[id$=_7_o]:checked ~ aside > div, 
+input[id$=_2_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_8_o]:checked ~ aside > div, 
+input[id$=_3_o]:checked ~ 
+input[id$=_6_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > div, 
+input[id$=_1_o]:checked ~ 
+input[id$=_2_o]:checked ~ 
+input[id$=_3_o]:checked ~ aside > div, 
+input[id$=_4_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_6_o]:checked ~ aside > div, 
+input[id$=_7_o]:checked ~ 
+input[id$=_8_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > div, 
+input[id$=_3_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_7_o]:checked ~ aside > div,
+input[id$=_1_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > div {
+    -webkit-filter: blur(.2em);
+    filter: blur(.2em);
+    opacity: .3;
 }
