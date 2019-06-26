@@ -64,6 +64,26 @@ input {
     display: none;
 }
 
+#game_over_message > input {
+    display: block;
+    grid-area: 4 / 1;
+    font-size: 32pt;
+    background-color: #8b8b8b;
+    color: white;
+    padding: .5em;
+    margin: 0 1em .5em 1em;
+    border-radius: 30px;
+    border: 0px;
+    box-shadow: 0 0 25px 0 white inset;
+}
+
+#game_over_message > input:hover {
+    cursor: pointer;
+    background-color: #585858;
+    color: #cfcece;
+    transition: .5s;
+}
+
 label {
     display: flex; 
     position: absolute;
