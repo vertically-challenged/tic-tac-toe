@@ -272,16 +272,7 @@ input[id$=_9_o]:checked ~ aside > #game_over_message > #message::before {
     content: "Player 2 wins";
 }
 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-aside > #game_over_message > #message::before {
+#message::before {
     content: "Draw";
 }
 
