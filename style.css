@@ -19,8 +19,12 @@ aside > div {
     background-color: #a8a8a8;
 }
 
-aside > div > div {
-	background-color: white;
+div[id^="cell"] {
+    background-color: white;
+    display: flex; 
+    font-size: 75pt;
+    align-items: center;
+    justify-content: center;
 }
 
 input {
@@ -41,10 +45,119 @@ label:hover {
     cursor: pointer;
 }
 
-label[for$="_x"]:hover::before{
+label[for$="_x"]:hover::before {
     content: "X";
 }
 
 label[for$="_o"]:hover::before {
     content: "O";
+}
+
+input[id$="_1_x"]:checked ~ aside > div > #cell_1::before,
+input[id$="_2_x"]:checked ~ aside > div > #cell_2::before,
+input[id$="_3_x"]:checked ~ aside > div > #cell_3::before,
+input[id$="_4_x"]:checked ~ aside > div > #cell_4::before,
+input[id$="_5_x"]:checked ~ aside > div > #cell_5::before,
+input[id$="_6_x"]:checked ~ aside > div > #cell_6::before,
+input[id$="_7_x"]:checked ~ aside > div > #cell_7::before,
+input[id$="_8_x"]:checked ~ aside > div > #cell_8::before,
+input[id$="_9_x"]:checked ~ aside > div > #cell_9::before {
+    content: "X";
+}
+
+input[id$="_1_o"]:checked ~ aside > div > #cell_1::before,
+input[id$="_2_o"]:checked ~ aside > div > #cell_2::before,
+input[id$="_3_o"]:checked ~ aside > div > #cell_3::before,
+input[id$="_4_o"]:checked ~ aside > div > #cell_4::before,
+input[id$="_5_o"]:checked ~ aside > div > #cell_5::before,
+input[id$="_6_o"]:checked ~ aside > div > #cell_6::before,
+input[id$="_7_o"]:checked ~ aside > div > #cell_7::before,
+input[id$="_8_o"]:checked ~ aside > div > #cell_8::before,
+input[id$="_9_o"]:checked ~ aside > div > #cell_9::before {
+    content: "O";
+}
+
+label[for$="_x"] {
+    z-index: 1; 
+}
+
+
+input:checked ~ 
+aside > div > div > label[for$="_o"] {
+    z-index: 2;
+}
+
+input:checked ~ 
+input:checked ~ 
+aside > div > div > label[for$="_x"] {
+    z-index: 3;
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+aside > div > div > label[for$="_o"] {
+    z-index: 4;
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+aside > div > div > label[for$="_x"] {
+    z-index: 5;
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+aside > div > div > label[for$="_o"] {
+    z-index: 6;
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+aside > div > div > label[for$="_x"] {
+    z-index: 7;
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+aside > div > div > label[for$="_o"] {
+    z-index: 8;
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+aside > div > div > label[for$="_x"] {
+    z-index: 9;
+}
+
+input[id*=_1_]:checked ~ aside > div > #cell_1 > label,
+input[id*=_2_]:checked ~ aside > div > #cell_2 > label,
+input[id*=_3_]:checked ~ aside > div > #cell_3 > label,
+input[id*=_4_]:checked ~ aside > div > #cell_4 > label,
+input[id*=_5_]:checked ~ aside > div > #cell_5 > label,
+input[id*=_6_]:checked ~ aside > div > #cell_6 > label,
+input[id*=_7_]:checked ~ aside > div > #cell_7 > label,
+input[id*=_8_]:checked ~ aside > div > #cell_8 > label,
+input[id*=_9_]:checked ~ aside > div > #cell_9 > label {
+    display: none;
 }
