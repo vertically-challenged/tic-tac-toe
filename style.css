@@ -464,3 +464,64 @@ input[id$=_9_o]:checked ~ aside > div {
     filter: blur(.2em);
     opacity: .3;
 }
+
+/*Edge support*/
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ aside > div > div > label,
+input[id$=_1_x]:checked ~ 
+input[id$=_4_x]:checked ~ 
+input[id$=_7_x]:checked ~ aside > div > div > label, 
+input[id$=_2_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_8_x]:checked ~ aside > div > div > label, 
+input[id$=_3_x]:checked ~ 
+input[id$=_6_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > div > div > label, 
+input[id$=_1_x]:checked ~ 
+input[id$=_2_x]:checked ~ 
+input[id$=_3_x]:checked ~ aside > div > div > label, 
+input[id$=_4_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_6_x]:checked ~ aside > div > div > label, 
+input[id$=_7_x]:checked ~ 
+input[id$=_8_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > div > div > label, 
+input[id$=_3_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_7_x]:checked ~ aside > div > div > label,
+input[id$=_1_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_9_x]:checked ~ aside > div > div > label,
+input[id$=_1_o]:checked ~ 
+input[id$=_4_o]:checked ~ 
+input[id$=_7_o]:checked ~ aside > div > div > label, 
+input[id$=_2_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_8_o]:checked ~ aside > div > div > label, 
+input[id$=_3_o]:checked ~ 
+input[id$=_6_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > div > div > label, 
+input[id$=_1_o]:checked ~ 
+input[id$=_2_o]:checked ~ 
+input[id$=_3_o]:checked ~ aside > div > div > label, 
+input[id$=_4_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_6_o]:checked ~ aside > div > div > label, 
+input[id$=_7_o]:checked ~ 
+input[id$=_8_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > div > div > label, 
+input[id$=_3_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_7_o]:checked ~ aside > div > div > label,
+input[id$=_1_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_9_o]:checked ~ aside > div > div > label {
+    display: none;
+}
