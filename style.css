@@ -82,6 +82,7 @@ input {
     border-radius: 30px;
     border: 0px;
     box-shadow: 0 0 25px 0 white inset;
+    outline: none;
 }
 
 #game_over_message > input:hover {
@@ -94,8 +95,8 @@ input {
 label {
     display: flex; 
     position: absolute;
-    width: 130px; 
-    height: 130px;
+    width: 128px; 
+    height: 128px;
     font-size: 75pt;
     align-items: center;
     justify-content: center;
