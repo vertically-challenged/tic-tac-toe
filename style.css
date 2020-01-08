@@ -1,109 +1,63 @@
 * {
-	margin: 0em; 
+    margin: 0; 
     padding: 0; 
     font-family: Arial, Helvetica, sans-serif;
-    -webkit-touch-callout: none; 
-    -webkit-user-select: none;   
-    -khtml-user-select: none;    
-    -moz-user-select: none;      
-    -ms-user-select: none;       
-    user-select: none;  
-    cursor: default;
 }
 
-aside {
-	display: grid;
-	grid-template: 1fr 400px 1fr / 1fr 400px 1fr; 
-	grid-gap: .5em;
-    height: 100vh;
+input[type="radio"] {
+    display: none;
 }
 
-aside > div {
-	grid-area: 2 / 2; 
-	display: grid;
-	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-	background-color: white;
-	grid-gap: .5em; 
+.playing-field {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    width: 300px;
+    height: 300px;
+    margin: auto;
+
+    font-size: 60pt;
+
     background-color: #a8a8a8;
 }
 
-#game_over_blur {
-    display: none;
-    grid-area: 2 / 2; 
-    background-color: #363636;
-    opacity: .4;
-    -webkit-filter: blur(1em);
-    filter: blur(1em);
-    width: 100%;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+
     height: 100%;
 }
 
-#game_over_message {
-    display: none; 
-    grid-area: 2 / 2; 
-    opacity: .7;
-    grid-template: repeat(4, 1fr) / 1fr;
-    align-items: center;
-}
-
-#game_over_message > span {
-    display: block;
-    color: white;
-    font-size: 32pt;
-    font-weight: bold;
-    text-align: center;
-    grid-area: 2 / 1; 
-}
-
-#game_over_message > span + span {
-    grid-area: 3 / 1;
-}
-
 div[id^="cell"] {
-    background-color: white;
-    display: flex; 
-    font-size: 75pt;
-    align-items: center;
+    position: relative;
+
+    display: flex;
     justify-content: center;
-}
+    align-items: center;
 
-input {
-    display: none;
-}
+    width: 96px;
+    height: 96px;
 
-#game_over_message > input {
-    display: block;
-    grid-area: 4 / 1;
-    font-size: 32pt;
-    background-color: #8b8b8b;
-    color: white;
-    padding: .5em;
-    margin: 0 1em .5em 1em;
-    border-radius: 30px;
-    border: 0px;
-    box-shadow: 0 0 25px 0 white inset;
-    outline: none;
-}
-
-#game_over_message > input:hover {
-    cursor: pointer;
-    background-color: #585858;
-    color: #cfcece;
-    transition: .5s;
+    background-color: #fff;
 }
 
 label {
-    display: flex; 
     position: absolute;
-    width: 128px; 
-    height: 128px;
-    font-size: 75pt;
-    align-items: center;
-    justify-content: center;
-    color: #a8a8a8;
-}
 
-label:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: #a8a8a8;
+
     cursor: pointer;
 }
 
@@ -115,28 +69,29 @@ label[for$="_o"]:hover::before {
     content: "O";
 }
 
-input[id$="_1_x"]:checked ~ aside > div > #cell_1::before,
-input[id$="_2_x"]:checked ~ aside > div > #cell_2::before,
-input[id$="_3_x"]:checked ~ aside > div > #cell_3::before,
-input[id$="_4_x"]:checked ~ aside > div > #cell_4::before,
-input[id$="_5_x"]:checked ~ aside > div > #cell_5::before,
-input[id$="_6_x"]:checked ~ aside > div > #cell_6::before,
-input[id$="_7_x"]:checked ~ aside > div > #cell_7::before,
-input[id$="_8_x"]:checked ~ aside > div > #cell_8::before,
-input[id$="_9_x"]:checked ~ aside > div > #cell_9::before {
+input[id$="_1_x"]:checked ~ .playing-field #cell_1::before,
+input[id$="_1_x"]:checked ~ .playing-field #cell_1::before,
+input[id$="_2_x"]:checked ~ .playing-field #cell_2::before,
+input[id$="_3_x"]:checked ~ .playing-field #cell_3::before,
+input[id$="_4_x"]:checked ~ .playing-field #cell_4::before,
+input[id$="_5_x"]:checked ~ .playing-field #cell_5::before,
+input[id$="_6_x"]:checked ~ .playing-field #cell_6::before,
+input[id$="_7_x"]:checked ~ .playing-field #cell_7::before,
+input[id$="_8_x"]:checked ~ .playing-field #cell_8::before,
+input[id$="_9_x"]:checked ~ .playing-field #cell_9::before {
     content: "X";
     color: #8b5a5a;
 }
 
-input[id$="_1_o"]:checked ~ aside > div > #cell_1::before,
-input[id$="_2_o"]:checked ~ aside > div > #cell_2::before,
-input[id$="_3_o"]:checked ~ aside > div > #cell_3::before,
-input[id$="_4_o"]:checked ~ aside > div > #cell_4::before,
-input[id$="_5_o"]:checked ~ aside > div > #cell_5::before,
-input[id$="_6_o"]:checked ~ aside > div > #cell_6::before,
-input[id$="_7_o"]:checked ~ aside > div > #cell_7::before,
-input[id$="_8_o"]:checked ~ aside > div > #cell_8::before,
-input[id$="_9_o"]:checked ~ aside > div > #cell_9::before {
+input[id$="_1_o"]:checked ~ .playing-field #cell_1::before,
+input[id$="_2_o"]:checked ~ .playing-field #cell_2::before,
+input[id$="_3_o"]:checked ~ .playing-field #cell_3::before,
+input[id$="_4_o"]:checked ~ .playing-field #cell_4::before,
+input[id$="_5_o"]:checked ~ .playing-field #cell_5::before,
+input[id$="_6_o"]:checked ~ .playing-field #cell_6::before,
+input[id$="_7_o"]:checked ~ .playing-field #cell_7::before,
+input[id$="_8_o"]:checked ~ .playing-field #cell_8::before,
+input[id$="_9_o"]:checked ~ .playing-field #cell_9::before {
     content: "O";
     color: #8c8d45;
 }
@@ -145,262 +100,302 @@ label[for$="_x"] {
     z-index: 1; 
 }
 
-
 input:checked ~ 
-aside > div > div > label[for$="_o"] {
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"] {
     z-index: 2;
 }
 
 input:checked ~ 
 input:checked ~ 
-aside > div > div > label[for$="_x"] {
-    z-index: 3;
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"] {
+    z-index: 0;
 }
 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-aside > div > div > label[for$="_o"] {
-    z-index: 4;
-}
-
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-aside > div > div > label[for$="_x"] {
-    z-index: 5;
-}
-
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-aside > div > div > label[for$="_o"] {
-    z-index: 6;
-}
-
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-aside > div > div > label[for$="_x"] {
-    z-index: 7;
-}
-
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-aside > div > div > label[for$="_o"] {
-    z-index: 8;
-}
-
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-aside > div > div > label[for$="_x"] {
-    z-index: 9;
-}
-
-input[id*=_1_]:checked ~ aside > div > #cell_1 > label,
-input[id*=_2_]:checked ~ aside > div > #cell_2 > label,
-input[id*=_3_]:checked ~ aside > div > #cell_3 > label,
-input[id*=_4_]:checked ~ aside > div > #cell_4 > label,
-input[id*=_5_]:checked ~ aside > div > #cell_5 > label,
-input[id*=_6_]:checked ~ aside > div > #cell_6 > label,
-input[id*=_7_]:checked ~ aside > div > #cell_7 > label,
-input[id*=_8_]:checked ~ aside > div > #cell_8 > label,
-input[id*=_9_]:checked ~ aside > div > #cell_9 > label {
+input[id*=_1_]:checked ~ .playing-field #cell_1 label,
+input[id*=_2_]:checked ~ .playing-field #cell_2 label,
+input[id*=_3_]:checked ~ .playing-field #cell_3 label,
+input[id*=_4_]:checked ~ .playing-field #cell_4 label,
+input[id*=_5_]:checked ~ .playing-field #cell_5 label,
+input[id*=_6_]:checked ~ .playing-field #cell_6 label,
+input[id*=_7_]:checked ~ .playing-field #cell_7 label,
+input[id*=_8_]:checked ~ .playing-field #cell_8 label,
+input[id*=_9_]:checked ~ .playing-field #cell_9 label {
     display: none;
 }
 
-input[id$=_1_x]:checked ~ 
-input[id$=_4_x]:checked ~ 
-input[id$=_7_x]:checked ~ aside > #game_over_message > #message::before, 
-input[id$=_2_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_8_x]:checked ~ aside > #game_over_message > #message::before, 
-input[id$=_3_x]:checked ~ 
-input[id$=_6_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > #game_over_message > #message::before, 
-input[id$=_1_x]:checked ~ 
-input[id$=_2_x]:checked ~ 
-input[id$=_3_x]:checked ~ aside > #game_over_message > #message::before, 
-input[id$=_4_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_6_x]:checked ~ aside > #game_over_message > #message::before, 
-input[id$=_7_x]:checked ~ 
-input[id$=_8_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > #game_over_message > #message::before, 
-input[id$=_3_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_7_x]:checked ~ aside > #game_over_message > #message::before,
-input[id$=_1_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > #game_over_message > #message::before {
-    content: "Player 1 wins";
+.modal__overlay {
+    position: absolute;
+    z-index: 3;
+
+    display: none;
+    width: 100%;
+    height: 100%;
+
+    background-color: black;
+    opacity: .3;
 }
 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.modal .modal__overlay, 
+input[id$=_1_x]:checked ~ 
+input[id$=_4_x]:checked ~ 
+input[id$=_7_x]:checked ~ .modal .modal__overlay, 
+input[id$=_2_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_8_x]:checked ~ .modal .modal__overlay, 
+input[id$=_3_x]:checked ~ 
+input[id$=_6_x]:checked ~ 
+input[id$=_9_x]:checked ~ .modal .modal__overlay, 
+input[id$=_1_x]:checked ~ 
+input[id$=_2_x]:checked ~ 
+input[id$=_3_x]:checked ~ .modal .modal__overlay, 
+input[id$=_4_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_6_x]:checked ~ .modal .modal__overlay, 
+input[id$=_7_x]:checked ~ 
+input[id$=_8_x]:checked ~ 
+input[id$=_9_x]:checked ~ .modal .modal__overlay, 
+input[id$=_3_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_7_x]:checked ~ .modal .modal__overlay,
+input[id$=_1_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_9_x]:checked ~ .modal .modal__overlay,
 input[id$=_1_o]:checked ~ 
 input[id$=_4_o]:checked ~ 
-input[id$=_7_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_7_o]:checked ~ .modal .modal__overlay, 
 input[id$=_2_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_8_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_8_o]:checked ~ .modal .modal__overlay, 
 input[id$=_3_o]:checked ~ 
 input[id$=_6_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_9_o]:checked ~ .modal .modal__overlay, 
 input[id$=_1_o]:checked ~ 
 input[id$=_2_o]:checked ~ 
-input[id$=_3_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_3_o]:checked ~ .modal .modal__overlay, 
 input[id$=_4_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_6_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_6_o]:checked ~ .modal .modal__overlay, 
 input[id$=_7_o]:checked ~ 
 input[id$=_8_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > #game_over_message > #message::before, 
+input[id$=_9_o]:checked ~ .modal .modal__overlay, 
 input[id$=_3_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_7_o]:checked ~ aside > #game_over_message > #message::before,
+input[id$=_7_o]:checked ~ .modal .modal__overlay,
 input[id$=_1_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > #game_over_message > #message::before {
-    content: "Player 2 wins";
+input[id$=_9_o]:checked ~ .modal .modal__overlay {
+    display: block;
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field, 
+input[id$=_1_x]:checked ~ 
+input[id$=_4_x]:checked ~ 
+input[id$=_7_x]:checked ~ .playing-field, 
+input[id$=_2_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_8_x]:checked ~ .playing-field, 
+input[id$=_3_x]:checked ~ 
+input[id$=_6_x]:checked ~ 
+input[id$=_9_x]:checked ~ .playing-field, 
+input[id$=_1_x]:checked ~ 
+input[id$=_2_x]:checked ~ 
+input[id$=_3_x]:checked ~ .playing-field, 
+input[id$=_4_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_6_x]:checked ~ .playing-field, 
+input[id$=_7_x]:checked ~ 
+input[id$=_8_x]:checked ~ 
+input[id$=_9_x]:checked ~ .playing-field, 
+input[id$=_3_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_7_x]:checked ~ .playing-field,
+input[id$=_1_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_9_x]:checked ~ .playing-field,
+input[id$=_1_o]:checked ~ 
+input[id$=_4_o]:checked ~ 
+input[id$=_7_o]:checked ~ .playing-field, 
+input[id$=_2_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_8_o]:checked ~ .playing-field, 
+input[id$=_3_o]:checked ~ 
+input[id$=_6_o]:checked ~ 
+input[id$=_9_o]:checked ~ .playing-field, 
+input[id$=_1_o]:checked ~ 
+input[id$=_2_o]:checked ~ 
+input[id$=_3_o]:checked ~ .playing-field, 
+input[id$=_4_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_6_o]:checked ~ .playing-field, 
+input[id$=_7_o]:checked ~ 
+input[id$=_8_o]:checked ~ 
+input[id$=_9_o]:checked ~ .playing-field, 
+input[id$=_3_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_7_o]:checked ~ .playing-field,
+input[id$=_1_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_9_o]:checked ~ .playing-field {
+    filter: blur(4px);
+}
+
+.game-over__message {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+
+    display: none; 
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 300px;
+    height: 260px;
+    margin: auto;
+}
+
+.game-over__message span {
+    font-size: 32pt;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    opacity: .8;
+}
+
+.game-over__message input {
+    display: block;
+    padding: .5em;
+    border: 0px;
+    border-radius: 30px;
+    font-size: 32pt;
+    background-color: #8b8b8b;
+    color: white;
+    box-shadow: 0 0 25px 0 white inset;
+    outline: none;
+    cursor: pointer;
+}
+
+.game-over__message input:hover {
+    background-color: #585858;
+    color: #cfcece;
+    transition: .5s;
 }
 
 #message::before {
     content: "Draw";
 }
 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-aside > #game_over_blur, 
 input[id$=_1_x]:checked ~ 
 input[id$=_4_x]:checked ~ 
-input[id$=_7_x]:checked ~ aside > #game_over_blur, 
+input[id$=_7_x]:checked ~ .game-over #message::before, 
 input[id$=_2_x]:checked ~ 
 input[id$=_5_x]:checked ~ 
-input[id$=_8_x]:checked ~ aside > #game_over_blur, 
+input[id$=_8_x]:checked ~ .game-over #message::before,
 input[id$=_3_x]:checked ~ 
 input[id$=_6_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > #game_over_blur, 
+input[id$=_9_x]:checked ~ .game-over #message::before, 
 input[id$=_1_x]:checked ~ 
 input[id$=_2_x]:checked ~ 
-input[id$=_3_x]:checked ~ aside > #game_over_blur, 
+input[id$=_3_x]:checked ~ .game-over #message::before, 
 input[id$=_4_x]:checked ~ 
 input[id$=_5_x]:checked ~ 
-input[id$=_6_x]:checked ~ aside > #game_over_blur, 
+input[id$=_6_x]:checked ~ .game-over #message::before, 
 input[id$=_7_x]:checked ~ 
 input[id$=_8_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > #game_over_blur, 
+input[id$=_9_x]:checked ~ .game-over #message::before, 
 input[id$=_3_x]:checked ~ 
 input[id$=_5_x]:checked ~ 
-input[id$=_7_x]:checked ~ aside > #game_over_blur,
+input[id$=_7_x]:checked ~ .game-over #message::before,
 input[id$=_1_x]:checked ~ 
 input[id$=_5_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > #game_over_blur,
+input[id$=_9_x]:checked ~ .game-over #message::before {
+    content: "Player 1 wins";
+}
+
 input[id$=_1_o]:checked ~ 
 input[id$=_4_o]:checked ~ 
-input[id$=_7_o]:checked ~ aside > #game_over_blur, 
+input[id$=_7_o]:checked ~ .game-over #message::before, 
 input[id$=_2_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_8_o]:checked ~ aside > #game_over_blur, 
+input[id$=_8_o]:checked ~ .game-over #message::before, 
 input[id$=_3_o]:checked ~ 
 input[id$=_6_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > #game_over_blur, 
+input[id$=_9_o]:checked ~ .game-over #message::before, 
 input[id$=_1_o]:checked ~ 
 input[id$=_2_o]:checked ~ 
-input[id$=_3_o]:checked ~ aside > #game_over_blur, 
+input[id$=_3_o]:checked ~ .game-over #message::before, 
 input[id$=_4_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_6_o]:checked ~ aside > #game_over_blur, 
+input[id$=_6_o]:checked ~ .game-over #message::before, 
 input[id$=_7_o]:checked ~ 
 input[id$=_8_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > #game_over_blur, 
+input[id$=_9_o]:checked ~ .game-over #message::before, 
 input[id$=_3_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_7_o]:checked ~ aside > #game_over_blur,
+input[id$=_7_o]:checked ~ .game-over #message::before,
 input[id$=_1_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > #game_over_blur,
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-aside > #game_over_message,
-input[id$=_1_x]:checked ~ 
-input[id$=_4_x]:checked ~ 
-input[id$=_7_x]:checked ~ aside > #game_over_message, 
-input[id$=_2_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_8_x]:checked ~ aside > #game_over_message, 
-input[id$=_3_x]:checked ~ 
-input[id$=_6_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > #game_over_message, 
-input[id$=_1_x]:checked ~ 
-input[id$=_2_x]:checked ~ 
-input[id$=_3_x]:checked ~ aside > #game_over_message, 
-input[id$=_4_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_6_x]:checked ~ aside > #game_over_message, 
-input[id$=_7_x]:checked ~ 
-input[id$=_8_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > #game_over_message, 
-input[id$=_3_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_7_x]:checked ~ aside > #game_over_message,
-input[id$=_1_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > #game_over_message,
-input[id$=_1_o]:checked ~ 
-input[id$=_4_o]:checked ~ 
-input[id$=_7_o]:checked ~ aside > #game_over_message, 
-input[id$=_2_o]:checked ~ 
-input[id$=_5_o]:checked ~ 
-input[id$=_8_o]:checked ~ aside > #game_over_message, 
-input[id$=_3_o]:checked ~ 
-input[id$=_6_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > #game_over_message, 
-input[id$=_1_o]:checked ~ 
-input[id$=_2_o]:checked ~ 
-input[id$=_3_o]:checked ~ aside > #game_over_message, 
-input[id$=_4_o]:checked ~ 
-input[id$=_5_o]:checked ~ 
-input[id$=_6_o]:checked ~ aside > #game_over_message, 
-input[id$=_7_o]:checked ~ 
-input[id$=_8_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > #game_over_message, 
-input[id$=_3_o]:checked ~ 
-input[id$=_5_o]:checked ~ 
-input[id$=_7_o]:checked ~ aside > #game_over_message,
-input[id$=_1_o]:checked ~ 
-input[id$=_5_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > #game_over_message {
-    display: grid;
+input[id$=_9_o]:checked ~ .game-over #message::before {
+    content: "Player 2 wins";
 }
 
 input:checked ~ 
@@ -411,117 +406,74 @@ input:checked ~
 input:checked ~ 
 input:checked ~ 
 input:checked ~ 
-input:checked ~ aside > div,
+input:checked ~ 
+.game-over .game-over__message,
 input[id$=_1_x]:checked ~ 
 input[id$=_4_x]:checked ~ 
-input[id$=_7_x]:checked ~ aside > div, 
+input[id$=_7_x]:checked ~ .game-over .game-over__message, 
 input[id$=_2_x]:checked ~ 
 input[id$=_5_x]:checked ~ 
-input[id$=_8_x]:checked ~ aside > div, 
+input[id$=_8_x]:checked ~ .game-over .game-over__message, 
 input[id$=_3_x]:checked ~ 
 input[id$=_6_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > div, 
+input[id$=_9_x]:checked ~ .game-over .game-over__message, 
 input[id$=_1_x]:checked ~ 
 input[id$=_2_x]:checked ~ 
-input[id$=_3_x]:checked ~ aside > div, 
+input[id$=_3_x]:checked ~ .game-over .game-over__message, 
 input[id$=_4_x]:checked ~ 
 input[id$=_5_x]:checked ~ 
-input[id$=_6_x]:checked ~ aside > div, 
+input[id$=_6_x]:checked ~ .game-over .game-over__message, 
 input[id$=_7_x]:checked ~ 
 input[id$=_8_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > div, 
+input[id$=_9_x]:checked ~ .game-over .game-over__message, 
 input[id$=_3_x]:checked ~ 
 input[id$=_5_x]:checked ~ 
-input[id$=_7_x]:checked ~ aside > div,
+input[id$=_7_x]:checked ~ .game-over .game-over__message,
 input[id$=_1_x]:checked ~ 
 input[id$=_5_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > div,
+input[id$=_9_x]:checked ~ .game-over .game-over__message,
 input[id$=_1_o]:checked ~ 
 input[id$=_4_o]:checked ~ 
-input[id$=_7_o]:checked ~ aside > div, 
+input[id$=_7_o]:checked ~ .game-over .game-over__message, 
 input[id$=_2_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_8_o]:checked ~ aside > div, 
+input[id$=_8_o]:checked ~ .game-over .game-over__message, 
 input[id$=_3_o]:checked ~ 
 input[id$=_6_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > div, 
+input[id$=_9_o]:checked ~ .game-over .game-over__message, 
 input[id$=_1_o]:checked ~ 
 input[id$=_2_o]:checked ~ 
-input[id$=_3_o]:checked ~ aside > div, 
+input[id$=_3_o]:checked ~ .game-over .game-over__message, 
 input[id$=_4_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_6_o]:checked ~ aside > div, 
+input[id$=_6_o]:checked ~ .game-over .game-over__message, 
 input[id$=_7_o]:checked ~ 
 input[id$=_8_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > div, 
+input[id$=_9_o]:checked ~ .game-over .game-over__message, 
 input[id$=_3_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_7_o]:checked ~ aside > div,
+input[id$=_7_o]:checked ~ .game-over .game-over__message,
 input[id$=_1_o]:checked ~ 
 input[id$=_5_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > div {
-    -webkit-filter: blur(.2em);
-    filter: blur(.2em);
-    opacity: .3;
+input[id$=_9_o]:checked ~ .game-over .game-over__message {
+    display: flex;
 }
 
-/*Edge support*/
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ 
-input:checked ~ aside > div > div > label,
-input[id$=_1_x]:checked ~ 
-input[id$=_4_x]:checked ~ 
-input[id$=_7_x]:checked ~ aside > div > div > label, 
-input[id$=_2_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_8_x]:checked ~ aside > div > div > label, 
-input[id$=_3_x]:checked ~ 
-input[id$=_6_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > div > div > label, 
-input[id$=_1_x]:checked ~ 
-input[id$=_2_x]:checked ~ 
-input[id$=_3_x]:checked ~ aside > div > div > label, 
-input[id$=_4_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_6_x]:checked ~ aside > div > div > label, 
-input[id$=_7_x]:checked ~ 
-input[id$=_8_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > div > div > label, 
-input[id$=_3_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_7_x]:checked ~ aside > div > div > label,
-input[id$=_1_x]:checked ~ 
-input[id$=_5_x]:checked ~ 
-input[id$=_9_x]:checked ~ aside > div > div > label,
-input[id$=_1_o]:checked ~ 
-input[id$=_4_o]:checked ~ 
-input[id$=_7_o]:checked ~ aside > div > div > label, 
-input[id$=_2_o]:checked ~ 
-input[id$=_5_o]:checked ~ 
-input[id$=_8_o]:checked ~ aside > div > div > label, 
-input[id$=_3_o]:checked ~ 
-input[id$=_6_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > div > div > label, 
-input[id$=_1_o]:checked ~ 
-input[id$=_2_o]:checked ~ 
-input[id$=_3_o]:checked ~ aside > div > div > label, 
-input[id$=_4_o]:checked ~ 
-input[id$=_5_o]:checked ~ 
-input[id$=_6_o]:checked ~ aside > div > div > label, 
-input[id$=_7_o]:checked ~ 
-input[id$=_8_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > div > div > label, 
-input[id$=_3_o]:checked ~ 
-input[id$=_5_o]:checked ~ 
-input[id$=_7_o]:checked ~ aside > div > div > label,
-input[id$=_1_o]:checked ~ 
-input[id$=_5_o]:checked ~ 
-input[id$=_9_o]:checked ~ aside > div > div > label {
-    display: none;
+.Donat {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.Donat a {
+    margin: 10px;
+    font-size: 14pt;
+    text-decoration: none;
+
+    color: #7a7a7a;
+}
+
+.Donat a:hover {
+    opacity: .7;
 }

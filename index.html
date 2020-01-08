@@ -25,8 +25,8 @@
         <input type="radio" id="cell_8_o">
         <input type="radio" id="cell_9_x">
         <input type="radio" id="cell_9_o">
-	    <aside>
-	    	<div>
+	    <section class="playing-field">
+	    	<div class="container">
 	    		<div id="cell_1">
                     <label for="cell_1_x"></label>
                     <label for="cell_1_o"></label>
@@ -64,13 +64,19 @@
                     <label for="cell_9_o"></label>
                 </div>
             </div>
-            <span id="game_over_blur"></span>
-            <span id="game_over_message">
+        </section>
+        <section class="modal game-over">
+            <div class="modal__overlay"></div>
+            <div class="game-over__message">
                 <span>Game Over</span> 
                 <span id="message"></span>
                 <input type="reset" value="Play again">
-            </span>
-        </aside>
+            </div>
+        </section>
     </form>
+    <section class="Donat">
+        <a href="https://www.donationalerts.com/r/verticallychallenged">Donationalerts</a>
+        <a href="https://donatepay.ru/don/vertically-challenged">Donatepay</a>
+    </section>
 </body>
 </html>
