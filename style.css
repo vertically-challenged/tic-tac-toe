@@ -14,10 +14,13 @@ input[type="radio"] {
     bottom: 0;
     right: 0;
     left: 0;
+
     width: 300px;
     height: 300px;
     margin: auto;
+
     font-size: 60pt;
+
     background-color: #a8a8a8;
 }
 
@@ -26,27 +29,35 @@ input[type="radio"] {
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
+
     height: 100%;
 }
 
 div[id^="cell"] {
     position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     width: 96px;
     height: 96px;
+
     background-color: #fff;
 }
 
 label {
     position: absolute;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     width: 100%;
     height: 100%;
+
     color: #a8a8a8;
+
     cursor: pointer;
 }
 
@@ -72,8 +83,71 @@ input[id$="_9_x"]:checked ~ .playing-field #cell_9::before {
     color: #8b5a5a;
 }
 
+input[id$="_1_o"]:checked ~ .playing-field #cell_1::before,
+input[id$="_2_o"]:checked ~ .playing-field #cell_2::before,
+input[id$="_3_o"]:checked ~ .playing-field #cell_3::before,
+input[id$="_4_o"]:checked ~ .playing-field #cell_4::before,
+input[id$="_5_o"]:checked ~ .playing-field #cell_5::before,
+input[id$="_6_o"]:checked ~ .playing-field #cell_6::before,
+input[id$="_7_o"]:checked ~ .playing-field #cell_7::before,
+input[id$="_8_o"]:checked ~ .playing-field #cell_8::before,
+input[id$="_9_o"]:checked ~ .playing-field #cell_9::before {
+    content: "O";
+    color: #8c8d45;
+}
+
 label[for$="_x"] {
     z-index: 1; 
+}
+
+input:checked ~ 
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"] {
+    z-index: 2;
+}
+
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"],
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+.playing-field label[for$="_o"] {
+    z-index: 0;
 }
 
 input[id*=_1_]:checked ~ .playing-field #cell_1 label,
@@ -91,22 +165,24 @@ input[id*=_9_]:checked ~ .playing-field #cell_9 label {
 .modal__overlay {
     position: absolute;
     z-index: 3;
+
     display: none;
     width: 100%;
     height: 100%;
+
     background-color: black;
     opacity: .3;
 }
 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
 .modal .modal__overlay, 
 input[id$=_1_x]:checked ~ 
 input[id$=_4_x]:checked ~ 
@@ -159,15 +235,15 @@ input[id$=_9_o]:checked ~ .modal .modal__overlay {
     display: block;
 }
 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
 .playing-field, 
 input[id$=_1_x]:checked ~ 
 input[id$=_4_x]:checked ~ 
@@ -227,9 +303,11 @@ input[id$=_9_o]:checked ~ .playing-field {
     left: 0;
     right: 0;
     z-index: 4;
+
     display: none; 
     flex-direction: column;
     justify-content: space-around;
+
     width: 300px;
     height: 260px;
     margin: auto;
@@ -266,15 +344,69 @@ input[id$=_9_o]:checked ~ .playing-field {
     content: "Draw";
 }
 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
-input[id^="cell"]:checked ~ 
+input[id$=_1_x]:checked ~ 
+input[id$=_4_x]:checked ~ 
+input[id$=_7_x]:checked ~ .game-over #message::before, 
+input[id$=_2_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_8_x]:checked ~ .game-over #message::before,
+input[id$=_3_x]:checked ~ 
+input[id$=_6_x]:checked ~ 
+input[id$=_9_x]:checked ~ .game-over #message::before, 
+input[id$=_1_x]:checked ~ 
+input[id$=_2_x]:checked ~ 
+input[id$=_3_x]:checked ~ .game-over #message::before, 
+input[id$=_4_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_6_x]:checked ~ .game-over #message::before, 
+input[id$=_7_x]:checked ~ 
+input[id$=_8_x]:checked ~ 
+input[id$=_9_x]:checked ~ .game-over #message::before, 
+input[id$=_3_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_7_x]:checked ~ .game-over #message::before,
+input[id$=_1_x]:checked ~ 
+input[id$=_5_x]:checked ~ 
+input[id$=_9_x]:checked ~ .game-over #message::before {
+    content: "Player 1 wins";
+}
+
+input[id$=_1_o]:checked ~ 
+input[id$=_4_o]:checked ~ 
+input[id$=_7_o]:checked ~ .game-over #message::before, 
+input[id$=_2_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_8_o]:checked ~ .game-over #message::before, 
+input[id$=_3_o]:checked ~ 
+input[id$=_6_o]:checked ~ 
+input[id$=_9_o]:checked ~ .game-over #message::before, 
+input[id$=_1_o]:checked ~ 
+input[id$=_2_o]:checked ~ 
+input[id$=_3_o]:checked ~ .game-over #message::before, 
+input[id$=_4_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_6_o]:checked ~ .game-over #message::before, 
+input[id$=_7_o]:checked ~ 
+input[id$=_8_o]:checked ~ 
+input[id$=_9_o]:checked ~ .game-over #message::before, 
+input[id$=_3_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_7_o]:checked ~ .game-over #message::before,
+input[id$=_1_o]:checked ~ 
+input[id$=_5_o]:checked ~ 
+input[id$=_9_o]:checked ~ .game-over #message::before {
+    content: "Player 2 wins";
+}
+
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
+input:checked ~ 
 .game-over .game-over__message,
 input[id$=_1_x]:checked ~ 
 input[id$=_4_x]:checked ~ 
@@ -330,7 +462,6 @@ input[id$=_9_o]:checked ~ .game-over .game-over__message {
 .Donat {
     position: fixed;
     bottom: 0;
-    z-index: 5;
     width: 100%;
     text-align: center;
 }
@@ -339,6 +470,7 @@ input[id$=_9_o]:checked ~ .game-over .game-over__message {
     margin: 10px;
     font-size: 14pt;
     text-decoration: none;
+
     color: #7a7a7a;
 }
 
