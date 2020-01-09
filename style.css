@@ -92,6 +92,8 @@ label {
     color: #a8a8a8;
 
     cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* label[for$="_x"]:hover::before {
