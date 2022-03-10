@@ -13,6 +13,10 @@
     user-select: none;   
 }
 
+body {
+    background: #fff;
+}
+
 input[type="radio"] {
     display: none;
 }
